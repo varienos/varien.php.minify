@@ -11,6 +11,8 @@
         "email": "hello@varien.software",
         "role": "Developer"
     }],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=5.3.0",
          "varienos/varien.php.minify": "^1.0"
