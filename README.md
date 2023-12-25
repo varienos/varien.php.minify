@@ -15,7 +15,7 @@ use Varien\Minify\Minifier;
 
 $minifier   = new Minifier();
 
-echo "<style>".$minifier->cssMinify('/* path/to/file.1.css */').$minifier->cssMinify('/* path/to/file.2.css */')."</style>";
+echo "<style>".$minifier->css('/* path/to/file.1.css */').$minifier->css('/* path/to/file.2.css */')."</style>";
 ```
 
 ### JS
@@ -25,7 +25,7 @@ use Varien\Minify\Minifier;
 
 $minifier   = new Minifier();
 
-echo "<script>".$minifier->jsMinify('/* path/to/file.1.js */').$minifier->jsMinify('/* path/to/file.2.js */')."</script>";
+echo "<script>".$minifier->js('/* path/to/file.1.js */').$minifier->js('/* path/to/file.2.js */')."</script>";
 ```
 
 ### HTML
@@ -35,5 +35,5 @@ use Varien\Minify\Minifier;
 
 $minifier   = new Minifier();
 
-echo $minifier->htmlMinify('/* HTML CODES */');
+echo $minifier->html('/* HTML CODES */');
 ```
