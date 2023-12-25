@@ -4,11 +4,11 @@ namespace Varien\Minify;
 
 class Minifier{
 
-    function cssMinify($content)
+    function css($source)
     {
-        $content = file_get_contents($content);
+        $source = file_get_contents($source);
 
-        if (trim($content) === "") return $content;
+        if (trim($source) === "") return $source;
         return preg_replace(
             array(
                 '#("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\')|\/\*(?!\!)(?>.*?\*\/)|^\s*|\s*$#s',
@@ -36,12 +36,12 @@ class Minifier{
                 '$1:0',
                 '$1$2'
             ),
-            $content);
+            $source);
     }
 
-    function jsMinify($content)
+    function js($source)
     {
-        if (trim($content) === "") return $content;
+        if (trim($source) === "") return $source;
         return preg_replace(
             array(
                 '#\s*("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\')\s*|\s*\/\*(?!\!|@cc_on)(?>[\s\S]*?\*\/)\s*|\s*(?<![\:\=])\/\/.*(?=[\n\r]|$)|^\s*|\s*$#',
@@ -57,10 +57,10 @@ class Minifier{
                 '$1$3',
                 '$1.$3'
             ),
-            $content);
+            $source);
     }
 
-    function htmlMinify($content)
+    function html($source)
     {
         $s = array(
             '/(\n|^)(\x20+|\t)/',
@@ -82,6 +82,6 @@ class Minifier{
             "$1>",
             "=$1");
 
-        return preg_replace($s, $r, $content);
+        return preg_replace($s, $r, $source);
     }
 }
